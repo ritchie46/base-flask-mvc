@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% from "_form_macros.html" import render_form_field %}
+
+{% block content %}
+
+<div class="container">
+
+<div class="content">
+    <div class="mt-3 mb-4">
+        <h2>User profile</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                 <div class="header">
+                    <h4 class="title">Email address</h4>
+                </div>
+
+                <div class="content">{{ current_user.email }}</div>
+            </div>
+
+
+            <div class="card">
+                 <div class="header">
+                    <h4 class="title">Account actions</h4>
+                </div>
+
+                    <div class="content">
+                        <div><a href="{{ url_for('user.user_email_change') }}">Change email</a></div>
+                        <div><a href="{{ url_for('user.user_password_change') }}">Change password</a></div>
+                    </div>
+            </div>
+
+            <div class="card">
+                 <div class="header">
+                    <h4 class="title">Statistics</h4>
+                </div>
+
+             <div class="content">
+                {% if current_user.last_logged_in != None %}
+                <div >Last logged in: {{ current_user.last_logged_in.strftime("%d-%m-%Y")}}</div>
+                {% else %}
+                <div >First time logged in. Welcome!</div>
+                {% endif %}
+             </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

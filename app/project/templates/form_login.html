@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% from "_form_macros.html" import render_form_field %}
+ 
+{% block content %}
+ 
+<div class="container content">
+
+
+<div class="card ">
+  <div class="mt-3 mb-4 header">
+    <h2>Log in</h2>
+  </div>
+
+  <div class="content">
+    <form action="{{ url_for('user.login') }}" method="post">
+    {{ form.csrf_token }}
+    <dl>
+      {{ render_form_field(form.email, placeholder="Email address") }}
+      {{ render_form_field(form.password, placeholder="Password") }}
+    </dl>
+    <button class="btn btn-sm btn-success" type="submit">Log in</button>
+  </form>
+  <br>
+  <hr>
+  <p><em>Don't have an account? </em><a href="{{ url_for('user.register') }}">Sign up!</a></p>
+  <p><em>Forgot password? </em><a href="{{ url_for('user.reset') }}">Reset!</a></p>
+</div>
+</div>
+</div>
+
+{% endblock %}
