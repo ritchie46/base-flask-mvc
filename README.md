@@ -18,11 +18,11 @@ Fire up a new project with user registration and a working flask mvc.
 
 **Create a new database table**
 
-`$ python ./app/db/db_create_new.py`
+`$ python -m app.db.db_create_new`
 
 **Run application**
 
-`$ python ./app/run.py`
+`$ python -m run`
 
 * username: user@gmail.com
 * password: testpassword
