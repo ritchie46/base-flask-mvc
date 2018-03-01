@@ -17,7 +17,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'user.login'
 
-from app.project.models import User
+from project.models import User
 
 
 @login_manager.user_loader
@@ -28,7 +28,7 @@ def load_user(user_id):
 # mail
 mail = Mail(app)
 
-from app.project.users.views import bp as users_bp
+from project.users.views import bp as users_bp
 app.register_blueprint(users_bp)
 
 

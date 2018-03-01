@@ -1,4 +1,4 @@
-from app.project import app, mail
+from project import app, mail
 from flask import url_for, render_template
 from itsdangerous import URLSafeTimedSerializer
 from flask_mail import Message

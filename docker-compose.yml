@@ -1,0 +1,30 @@
+version: '3.2'
+
+services:
+  web:
+    restart: always
+    build: ./app
+    expose:
+      - "8000"
+    volumes:
+      - type: volume
+        source: staticVolume
+        target: /app/project/static
+        volume:
+          nocopy: true
+    command: gunicorn -w 2 -b :8000 project:app
+
+  nginx:
+    restart: always
+    build: ./nginx
+    ports:
+      - "80:80"
+    volumes:
+      - type: volume
+        source: staticVolume
+        target: /static
+    depends_on:
+      - web
+
+volumes:
+  staticVolume:

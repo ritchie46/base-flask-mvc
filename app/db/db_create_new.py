@@ -1,5 +1,5 @@
-from app.project import db
-from app.project.models import User
+from project import db
+from project.models import User
 from datetime import datetime
 
 

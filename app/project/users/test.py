@@ -1,7 +1,7 @@
 import unittest
 from itsdangerous import URLSafeTimedSerializer
-from app.project.test import InitTest
-from app.project import app
+from project.test import InitTest
+from project import app
 
 
 class UsersTest(InitTest):

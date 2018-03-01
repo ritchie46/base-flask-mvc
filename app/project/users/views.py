@@ -1,12 +1,12 @@
 from flask import Blueprint, request, flash, render_template, redirect, url_for, abort
-from app.project.users.forms import RegisterForm, LoginForm, EmailForm, PasswordForm
-from app.project.models import User
-from app.project import db, app
+from project.users.forms import RegisterForm, LoginForm, EmailForm, PasswordForm
+from project.models import User
+from project import db, app
 from itsdangerous import URLSafeTimedSerializer, BadData
 from sqlalchemy.exc import IntegrityError
 from flask_login import login_user, logout_user, login_required, current_user
 from datetime import datetime
-from app.mailing import send_confirmation_email, send_password_reset_email, send_token_email
+from mailing import send_confirmation_email, send_password_reset_email, send_token_email
 
 bp = Blueprint("user", __name__)
 
